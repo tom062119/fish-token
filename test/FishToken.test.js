@@ -200,10 +200,10 @@ describe("FishToken", function () {
 
     it("暂停时不应该能够转账", async function () {
       await fishToken.pause();
-      
+
       await expect(
         fishToken.transfer(addr1.address, ethers.parseEther("100"))
-      ).to.be.revertedWith("Pausable: paused");
+      ).to.be.revertedWith("ERC20Pausable: token transfer while paused");
     });
 
     it("非所有者不应该能够暂停", async function () {

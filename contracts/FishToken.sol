@@ -37,10 +37,13 @@ contract FishToken is ERC20, ERC20Burnable, ERC20Pausable, Ownable, ReentrancyGu
      * @dev 构造函数
      * @param initialOwner 初始所有者地址
      */
-    constructor(address initialOwner) 
-        ERC20("Fish Token", "FISH") 
-        Ownable(initialOwner)
+    constructor(address initialOwner)
+        ERC20("Fish Token", "FISH")
+        Ownable()
     {
+        // 转移所有权给指定地址
+        _transferOwnership(initialOwner);
+
         // 铸造初始供应量给合约所有者
         _mint(initialOwner, INITIAL_SUPPLY);
         emit TokensMinted(initialOwner, INITIAL_SUPPLY);

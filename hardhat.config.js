@@ -1,5 +1,4 @@
 require("@nomicfoundation/hardhat-toolbox");
-require("@nomiclabs/hardhat-etherscan");
 require("dotenv").config();
 
 /** @type import('hardhat/config').HardhatUserConfig */
@@ -22,17 +21,17 @@ module.exports = {
     
     // Polygon Mumbai测试网
     mumbai: {
-      url: process.env.MUMBAI_RPC_URL || "https://rpc-mumbai.maticvigil.com/",
-      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
+      url: process.env.MUMBAI_RPC_URL || "https://polygon-mumbai.g.alchemy.com/v2/demo",
+      accounts: process.env.PRIVATE_KEY && process.env.PRIVATE_KEY.length === 66 ? [process.env.PRIVATE_KEY] : [],
       chainId: 80001,
       gasPrice: 20000000000, // 20 gwei
       gas: 6000000,
     },
-    
+
     // Polygon主网
     polygon: {
       url: process.env.POLYGON_RPC_URL || "https://polygon-rpc.com/",
-      accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
+      accounts: process.env.PRIVATE_KEY && process.env.PRIVATE_KEY.length === 66 ? [process.env.PRIVATE_KEY] : [],
       chainId: 137,
       gasPrice: 30000000000, // 30 gwei
       gas: 6000000,
