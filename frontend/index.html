@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/fish-icon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Fish Token - Polygon链上的ERC-20代币管理平台" />
+    <meta name="keywords" content="Fish Token, Polygon, ERC-20, 代币, 区块链, DeFi" />
+    <title>🐟 Fish Token - Polygon代币管理平台</title>
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Fish Token - Polygon代币管理平台" />
+    <meta property="og:description" content="安全、便捷的Fish代币管理平台，支持转账、查询、管理等功能" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/fish-token-banner.png" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Fish Token - Polygon代币管理平台" />
+    <meta name="twitter:description" content="安全、便捷的Fish代币管理平台" />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <style>
+      /* 全局样式重置 */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        color: #333;
+      }
+      
+      /* 加载动画 */
+      .loading-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+      
+      .loading-fish {
+        font-size: 4rem;
+        animation: swim 2s ease-in-out infinite;
+        margin-bottom: 1rem;
+      }
+      
+      .loading-text {
+        color: white;
+        font-size: 1.2rem;
+        font-weight: 500;
+        animation: pulse 1.5s ease-in-out infinite;
+      }
+      
+      @keyframes swim {
+        0%, 100% { transform: translateX(-10px) rotate(-5deg); }
+        50% { transform: translateX(10px) rotate(5deg); }
+      }
+      
+      @keyframes pulse {
+        0%, 100% { opacity: 0.7; }
+        50% { opacity: 1; }
+      }
+      
+      /* 隐藏加载动画 */
+      .loading-container.hidden {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.5s ease, visibility 0.5s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 加载动画 -->
+    <div id="loading" class="loading-container">
+      <div class="loading-fish">🐟</div>
+      <div class="loading-text">正在加载 Fish Token...</div>
+    </div>
+    
+    <!-- Vue应用挂载点 -->
+    <div id="app"></div>
+    
+    <script>
+      // 页面加载完成后隐藏加载动画
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const loading = document.getElementById('loading');
+          if (loading) {
+            loading.classList.add('hidden');
+            setTimeout(() => {
+              loading.remove();
+            }, 500);
+          }
+        }, 1000);
+      });
+      
+      // 错误处理
+      window.addEventListener('error', (event) => {
+        console.error('页面错误:', event.error);
+      });
+      
+      // 未处理的Promise拒绝
+      window.addEventListener('unhandledrejection', (event) => {
+        console.error('未处理的Promise拒绝:', event.reason);
+      });
+    </script>
+    
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

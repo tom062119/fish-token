@@ -1,0 +1,61 @@
+{
+  "name": "fish-token",
+  "version": "1.0.0",
+  "description": "Fish Token - Polygon链上的ERC-20代币",
+  "main": "index.js",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "test": "npx hardhat test",
+    "test:coverage": "npx hardhat coverage",
+    "deploy:local": "npx hardhat run scripts/deploy.js",
+    "deploy:mumbai": "npx hardhat run scripts/deploy.js --network mumbai",
+    "deploy:polygon": "npx hardhat run scripts/deploy.js --network polygon",
+    "verify:mumbai": "npx hardhat run scripts/verify.js --network mumbai",
+    "verify:polygon": "npx hardhat run scripts/verify.js --network polygon",
+    "node": "npx hardhat node",
+    "clean": "npx hardhat clean",
+    "size": "npx hardhat size-contracts",
+    "dev": "cd frontend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "preview": "cd frontend && npm run preview",
+    "install:frontend": "cd frontend && npm install",
+    "setup": "npm install && npm run install:frontend && npm run compile"
+  },
+  "keywords": [
+    "ethereum",
+    "polygon",
+    "erc20",
+    "token",
+    "fish",
+    "blockchain",
+    "defi"
+  ],
+  "author": "Fish Token Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^3.0.2",
+    "@nomiclabs/hardhat-etherscan": "^3.1.7",
+    "@openzeppelin/contracts": "^4.9.3",
+    "chai": "^4.3.8",
+    "dotenv": "^16.3.1",
+    "ethers": "^6.7.1",
+    "hardhat": "^2.17.1",
+    "hardhat-gas-reporter": "^1.0.9",
+    "solidity-coverage": "^0.8.4"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.9.3"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/fish-token.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/fish-token/issues"
+  },
+  "homepage": "https://github.com/your-username/fish-token#readme"
+}
