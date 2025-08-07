@@ -13,34 +13,36 @@
         <!-- 导航菜单 -->
         <nav class="nav">
           <router-link to="/" class="nav-link">首页</router-link>
+          <router-link to="/tokenomics" class="nav-link">代币经济学</router-link>
+          <router-link to="/community" class="nav-link">社区</router-link>
+          <router-link to="/docs" class="nav-link">文档</router-link>
           <router-link v-if="web3Store.isConnected" to="/dashboard" class="nav-link">仪表板</router-link>
           <router-link v-if="web3Store.isConnected" to="/transfer" class="nav-link">转账</router-link>
           <router-link v-if="web3Store.isConnected" to="/history" class="nav-link">历史</router-link>
           <router-link v-if="web3Store.isOwner" to="/admin" class="nav-link">管理</router-link>
-
-          <!-- 下拉菜单 -->
-          <el-dropdown class="nav-dropdown">
-            <span class="nav-link dropdown-trigger">
-              更多 <el-icon class="el-icon--right"><arrow-down /></el-icon>
-            </span>
-            <template #dropdown>
-              <el-dropdown-menu>
-                <el-dropdown-item>
-                  <router-link to="/tokenomics" class="dropdown-link">代币经济学</router-link>
-                </el-dropdown-item>
-                <el-dropdown-item>
-                  <router-link to="/docs" class="dropdown-link">API文档</router-link>
-                </el-dropdown-item>
-                <el-dropdown-item>
-                  <router-link to="/community" class="dropdown-link">社区</router-link>
-                </el-dropdown-item>
-                <el-dropdown-item>
-                  <router-link to="/about" class="dropdown-link">关于</router-link>
-                </el-dropdown-item>
-              </el-dropdown-menu>
-            </template>
-          </el-dropdown>
+          <router-link to="/about" class="nav-link">关于</router-link>
         </nav>
+
+        <!-- 移动端菜单按钮 -->
+        <el-button
+          class="mobile-menu-btn"
+          @click="showMobileMenu = !showMobileMenu"
+          :icon="showMobileMenu ? 'Close' : 'Menu'"
+          circle
+        />
+
+        <!-- 移动端菜单 -->
+        <div v-if="showMobileMenu" class="mobile-menu">
+          <router-link to="/" class="mobile-nav-link" @click="showMobileMenu = false">首页</router-link>
+          <router-link to="/tokenomics" class="mobile-nav-link" @click="showMobileMenu = false">代币经济学</router-link>
+          <router-link to="/community" class="mobile-nav-link" @click="showMobileMenu = false">社区</router-link>
+          <router-link to="/docs" class="mobile-nav-link" @click="showMobileMenu = false">文档</router-link>
+          <router-link v-if="web3Store.isConnected" to="/dashboard" class="mobile-nav-link" @click="showMobileMenu = false">仪表板</router-link>
+          <router-link v-if="web3Store.isConnected" to="/transfer" class="mobile-nav-link" @click="showMobileMenu = false">转账</router-link>
+          <router-link v-if="web3Store.isConnected" to="/history" class="mobile-nav-link" @click="showMobileMenu = false">历史</router-link>
+          <router-link v-if="web3Store.isOwner" to="/admin" class="mobile-nav-link" @click="showMobileMenu = false">管理</router-link>
+          <router-link to="/about" class="mobile-nav-link" @click="showMobileMenu = false">关于</router-link>
+        </div>
 
         <!-- 右侧操作区 -->
         <div class="header-actions">
@@ -112,6 +114,7 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import { useWeb3Store } from '@/stores/web3'
 import { useThemeStore } from '@/stores/theme'
 import {
@@ -125,6 +128,7 @@ import {
 
 const web3Store = useWeb3Store()
 const themeStore = useThemeStore()
+const showMobileMenu = ref(false)
 
 // 连接钱包
 const connectWallet = async () => {
@@ -229,17 +233,97 @@ const handleWalletAction = async (command) => {
   font-size: 0.9rem;
 }
 
+.nav-dropdown {
+  display: inline-block;
+}
+
+.dropdown-trigger {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.dropdown-link {
+  color: var(--text-regular);
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0;
+}
+
+.dropdown-link:hover {
+  color: var(--primary-color);
+}
+
+/* 移动端菜单 */
+.mobile-menu-btn {
+  display: none;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-base);
+}
+
+.mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border-light);
+  box-shadow: var(--shadow-dark);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+}
+
+.mobile-nav-link {
+  color: var(--text-regular);
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid var(--border-light);
+  transition: var(--transition-fast);
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.router-link-active {
+  color: var(--primary-color);
+  background: var(--bg-secondary);
+}
+
+.mobile-nav-link:last-child {
+  border-bottom: none;
+}
+
 /* 响应式设计 */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .nav {
     display: none;
   }
-  
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
   .header-content {
     padding: 0 1rem;
   }
-  
+
   .logo-text {
+    display: none;
+  }
+
+  .header-actions {
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .theme-toggle {
+    display: none;
+  }
+
+  .network-info {
     display: none;
   }
 }

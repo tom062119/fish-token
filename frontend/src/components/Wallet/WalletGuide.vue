@@ -11,7 +11,7 @@
         
         <div class="install-content">
           <div class="wallet-info">
-            <img src="/metamask-logo.png" alt="MetaMask" class="wallet-logo" />
+            <div class="wallet-logo">🦊</div>
             <h3>MetaMask - 最受欢迎的Web3钱包</h3>
             <p>MetaMask是一个安全的数字钱包，让您可以存储、发送和接收加密货币，以及与去中心化应用交互。</p>
           </div>
@@ -31,15 +31,15 @@
               <p>或手动下载：</p>
               <div class="browser-links">
                 <a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn" target="_blank" class="browser-link">
-                  <el-icon><ChromeFilled /></el-icon>
+                  <el-icon><Monitor /></el-icon>
                   Chrome
                 </a>
                 <a href="https://addons.mozilla.org/en-US/firefox/addon/ether-metamask/" target="_blank" class="browser-link">
-                  <el-icon><FirefoxFilled /></el-icon>
+                  <el-icon><Monitor /></el-icon>
                   Firefox
                 </a>
                 <a href="https://microsoftedge.microsoft.com/addons/detail/metamask/ejbalbakoplchlghecdalmeeeajnimhm" target="_blank" class="browser-link">
-                  <el-icon><EdgeFilled /></el-icon>
+                  <el-icon><Monitor /></el-icon>
                   Edge
                 </a>
               </div>
@@ -114,11 +114,9 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { useWeb3Store } from '@/stores/web3'
-import { 
-  Download, 
-  ChromeFilled, 
-  FirefoxFilled, 
-  EdgeFilled,
+import {
+  Download,
+  Monitor,
   Wallet,
   Link,
   Plus
@@ -225,9 +223,9 @@ onMounted(() => {
 }
 
 .wallet-logo {
-  width: 80px;
-  height: 80px;
+  font-size: 5rem;
   margin-bottom: 1rem;
+  display: block;
 }
 
 .wallet-info h3 {
