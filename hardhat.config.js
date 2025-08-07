@@ -19,9 +19,18 @@ module.exports = {
       chainId: 31337,
     },
     
-    // Polygon Mumbai测试网
+    // Polygon Amoy测试网 (新的官方测试网)
+    amoy: {
+      url: process.env.AMOY_RPC_URL || "https://rpc-amoy.polygon.technology",
+      accounts: process.env.PRIVATE_KEY && process.env.PRIVATE_KEY.length === 66 ? [process.env.PRIVATE_KEY] : [],
+      chainId: 80002,
+      gasPrice: 20000000000, // 20 gwei
+      gas: 6000000,
+    },
+
+    // Polygon Mumbai测试网 (已弃用，保留兼容性)
     mumbai: {
-      url: process.env.MUMBAI_RPC_URL || "https://polygon-mumbai.g.alchemy.com/v2/demo",
+      url: process.env.MUMBAI_RPC_URL || "https://polygon-mumbai-bor.publicnode.com",
       accounts: process.env.PRIVATE_KEY && process.env.PRIVATE_KEY.length === 66 ? [process.env.PRIVATE_KEY] : [],
       chainId: 80001,
       gasPrice: 20000000000, // 20 gwei
@@ -43,6 +52,7 @@ module.exports = {
     apiKey: {
       polygon: process.env.POLYGONSCAN_API_KEY,
       polygonMumbai: process.env.POLYGONSCAN_API_KEY,
+      polygonAmoy: process.env.POLYGONSCAN_API_KEY,
     },
   },
   

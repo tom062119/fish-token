@@ -24,13 +24,13 @@
                 <Wallet class="mr-2" />
                 连接钱包
               </el-button>
-              <el-button 
+              <el-button
                 v-else
-                type="primary" 
-                size="large" 
+                type="primary"
+                size="large"
                 @click="$router.push('/dashboard')"
               >
-                <Dashboard class="mr-2" />
+                <Monitor class="mr-2" />
                 进入仪表板
               </el-button>
               <el-button 
@@ -161,13 +161,13 @@
 <script setup>
 import { ref } from 'vue'
 import { useWeb3Store } from '@/stores/web3'
-import { 
-  Wallet, 
-  Dashboard, 
-  Lightning, 
-  Shield, 
-  Coin, 
-  Globe 
+import {
+  Wallet,
+  Monitor,
+  Lightning,
+  Lock,
+  Coin,
+  Connection
 } from '@element-plus/icons-vue'
 
 const web3Store = useWeb3Store()
@@ -185,12 +185,12 @@ const features = ref([
     description: '交易费用低至$0.01，让每一笔转账都经济实惠'
   },
   {
-    icon: Shield,
+    icon: Lock,
     title: '安全可靠',
     description: '基于以太坊安全性，经过严格审计的智能合约'
   },
   {
-    icon: Globe,
+    icon: Connection,
     title: '全球通用',
     description: '24/7全球可用，支持跨境转账和DeFi应用'
   }

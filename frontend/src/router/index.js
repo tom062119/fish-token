@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { useWeb3Store } from '@/stores/web3'
+import { ElMessage } from 'element-plus'
 
 // 路由配置
 const routes = [
