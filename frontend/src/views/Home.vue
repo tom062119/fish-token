@@ -140,6 +140,14 @@
       </div>
     </section>
 
+    <!-- 钱包引导 -->
+    <section class="wallet-guide-section">
+      <div class="container">
+        <h2 class="section-title">开始使用</h2>
+        <WalletGuide />
+      </div>
+    </section>
+
     <!-- 快速开始 -->
     <section class="quick-start">
       <div class="container">
@@ -161,6 +169,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useWeb3Store } from '@/stores/web3'
+import WalletGuide from '@/components/Wallet/WalletGuide.vue'
 import {
   Wallet,
   Monitor,

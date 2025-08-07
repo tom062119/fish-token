@@ -17,6 +17,8 @@
     "node": "npx hardhat node",
     "clean": "npx hardhat clean",
     "size": "npx hardhat size-contracts",
+    "monitor": "npx hardhat run scripts/monitor-balance.js --network amoy",
+    "monitor:mumbai": "npx hardhat run scripts/monitor-balance.js --network mumbai",
     "dev": "cd frontend && npm run dev",
     "build": "cd frontend && npm run build",
     "preview": "cd frontend && npm run preview",

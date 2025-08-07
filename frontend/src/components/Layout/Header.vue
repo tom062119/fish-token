@@ -17,7 +17,29 @@
           <router-link v-if="web3Store.isConnected" to="/transfer" class="nav-link">转账</router-link>
           <router-link v-if="web3Store.isConnected" to="/history" class="nav-link">历史</router-link>
           <router-link v-if="web3Store.isOwner" to="/admin" class="nav-link">管理</router-link>
-          <router-link to="/about" class="nav-link">关于</router-link>
+
+          <!-- 下拉菜单 -->
+          <el-dropdown class="nav-dropdown">
+            <span class="nav-link dropdown-trigger">
+              更多 <el-icon class="el-icon--right"><arrow-down /></el-icon>
+            </span>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item>
+                  <router-link to="/tokenomics" class="dropdown-link">代币经济学</router-link>
+                </el-dropdown-item>
+                <el-dropdown-item>
+                  <router-link to="/docs" class="dropdown-link">API文档</router-link>
+                </el-dropdown-item>
+                <el-dropdown-item>
+                  <router-link to="/community" class="dropdown-link">社区</router-link>
+                </el-dropdown-item>
+                <el-dropdown-item>
+                  <router-link to="/about" class="dropdown-link">关于</router-link>
+                </el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
         </nav>
 
         <!-- 右侧操作区 -->

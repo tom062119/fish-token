@@ -51,6 +51,33 @@ const routes = [
     }
   },
   {
+    path: '/docs',
+    name: 'Docs',
+    component: () => import('@/views/Docs.vue'),
+    meta: {
+      title: 'API文档',
+      requiresAuth: false
+    }
+  },
+  {
+    path: '/tokenomics',
+    name: 'Tokenomics',
+    component: () => import('@/views/Tokenomics.vue'),
+    meta: {
+      title: '代币经济学',
+      requiresAuth: false
+    }
+  },
+  {
+    path: '/community',
+    name: 'Community',
+    component: () => import('@/views/Community.vue'),
+    meta: {
+      title: '社区',
+      requiresAuth: false
+    }
+  },
+  {
     path: '/about',
     name: 'About',
     component: () => import('@/views/About.vue'),

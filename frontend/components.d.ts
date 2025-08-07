@@ -7,17 +7,21 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    ElAlert: typeof import('element-plus/es')['ElAlert']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCard: typeof import('element-plus/es')['ElCard']
     ElDropdown: typeof import('element-plus/es')['ElDropdown']
     ElDropdownItem: typeof import('element-plus/es')['ElDropdownItem']
     ElDropdownMenu: typeof import('element-plus/es')['ElDropdownMenu']
     ElIcon: typeof import('element-plus/es')['ElIcon']
+    ElMenu: typeof import('element-plus/es')['ElMenu']
+    ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
     ElTag: typeof import('element-plus/es')['ElTag']
     Footer: typeof import('./src/components/Layout/Footer.vue')['default']
     Header: typeof import('./src/components/Layout/Header.vue')['default']
     Notifications: typeof import('./src/components/Common/Notifications.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    WalletGuide: typeof import('./src/components/Wallet/WalletGuide.vue')['default']
   }
 }

@@ -17,17 +17,17 @@
           <h4>快速链接</h4>
           <ul class="footer-links">
             <li><router-link to="/">首页</router-link></li>
+            <li><router-link to="/tokenomics">代币经济学</router-link></li>
+            <li><router-link to="/community">社区</router-link></li>
             <li><router-link to="/about">关于</router-link></li>
-            <li><a href="https://polygonscan.com" target="_blank">区块浏览器</a></li>
-            <li><a href="https://polygon.technology" target="_blank">Polygon网络</a></li>
           </ul>
         </div>
 
         <div class="footer-section">
           <h4>开发者</h4>
           <ul class="footer-links">
-            <li><a href="/docs/API.md" target="_blank">API文档</a></li>
-            <li><a href="/docs/DEPLOY.md" target="_blank">部署指南</a></li>
+            <li><router-link to="/docs">API文档</router-link></li>
+            <li><a href="https://github.com/tom062119/fish-token/blob/main/docs/DEPLOY.md" target="_blank">部署指南</a></li>
             <li><a href="https://docs.polygon.technology" target="_blank">Polygon文档</a></li>
             <li><a href="https://hardhat.org" target="_blank">Hardhat</a></li>
           </ul>
